@@ -12,14 +12,14 @@ import axios from 'axios'
 Vue.prototype.$http = axios
 //添加一个请求拦截器
 axios.interceptors.request.use(function(config){
-    // store.dispatch('showloader')
+    store.dispatch('showloader')
     return config
 },function(err){
     return Promise.reject(err)
 })
 //添加一个响应拦截器
 axios.interceptors.response.use(function(response){
-    // store.dispatch('hideloader')
+    store.dispatch('hideloader')
     return response
 },function(err){
     return Promise.reject(err)
