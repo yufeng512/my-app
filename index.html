@@ -2,11 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
     <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
-    <title>my-pubulic</title>
+    <title>鑫团优选</title>
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+    window.onload = function () {
+      let scrollEle = document.body;
+      scrollEle.addEventListener('touchstart', (evt) => {
+          // 修复微信的黑色弹性滚动与ios冲突问题
+          let scrollTop = scrollEle.scrollTop;
+          let scrollHeight = scrollEle.scrollHeight;
+          let height = scrollEle.offsetHeight;
+          let scrollTopTo;
+
+          // 顶部
+          scrollTopTo = Math.max(scrollTop, 1);
+          // 底部
+          if(scrollTopTo === scrollHeight - height) {
+            scrollTopTo--;
+          }
+
+          if(scrollTop != scrollTopTo) {
+            scrollEle.scrollTop = scrollTopTo;
+          }
+      });
+    }
+    </script>
   </body>
 </html>

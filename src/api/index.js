@@ -1,28 +1,19 @@
 import api_url from './config'
+// import Vue from 'vue'
 import axios from 'axios'
 
+// Vue.prototype.$http = axios
+
+const url = 'https://api.github.com/repos/typecho-fans/plugins/contents/'
+
 export default {
-
-  getDiscList() {
-    const url = '/api/getDiscList'
-
-    const data = Object.assign({}, commonParams, {
-      platform: 'yqq',
-      hostUin: 0,
-      sin: 0,
-      ein: 29,
-      sortId: 5,
-      needNewCode: 0,
-      categoryId: 10000000,
-      rnd: Math.random(),
-      format: 'json'
+  getList() {
+    return axios.get(url).then((res) => {
+      return Promise.resolve(res)
     })
+  },
+  fetch(url, params){
 
-    return axios.get(url, {
-      params: data
-    }).then((res) => {
-      return Promise.resolve(res.data)
-    })
   }
 
 }
