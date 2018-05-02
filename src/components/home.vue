@@ -6,7 +6,10 @@
         <li v-for="item in downdata">{{ item.name }}</li>
       </ul>
     </div>
-    <vFooter @userCenter="userCenterBtn()" @goHome="goHomeBtn()"></vFooter>
+    <vFooter
+      @userCenter="$router.push('/userCenter')"
+      @goHome="$router.push('/home')"
+      @goShop="$router.push('/shopping')" />
   </div>
 </template>
 
@@ -34,12 +37,6 @@ export default {
     this.getList();
   },
   methods:{
-    userCenterBtn(){
-      this.$router.push('/userCenter')
-    },
-    goHomeBtn(){
-      this.$router.push('/home')
-    },
     getList(){
       let vm = this
       API.getList().then( (rs) =>{

@@ -1,7 +1,7 @@
 <template id="">
   <div class="footer-box box-flex">
     <div class="" @click="goHome()" > 首页 </div>
-    <div class="">
+    <div class="" @click="goShop()">
        <div>购物车</div>
      </div>
     <div class="" @click="userCenter()"> 个人中心 </div>
@@ -21,6 +21,9 @@ export default {
       },
       goHome(){
         this.$emit('goHome')
+      },
+      goShop(){
+        this.$emit('goShop')
       }
   }
 }

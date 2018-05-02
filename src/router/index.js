@@ -1,5 +1,7 @@
 import home from '@/components/home'
 import order from '@/components/order'
+import pay from '@/components/pay'
+import shopping from '@/components/shopping'
 import userCenter from '@/components/user-center'
 import testPull from '@/common/p-test-pull/test-pull'
 
@@ -40,6 +42,22 @@ const router = [
       component: testPull,
       meta: {
         title: '下拉刷新'
+      }
+    },
+    {
+      path: '/pay',
+      name: '支付',
+      component: pay,
+      meta: {
+        title: '支付'
+      }
+    },
+    {
+      path: '/shopping',
+      name: '购物',
+      component: shopping,
+      meta: {
+        title: '购物'
       }
     }
   ]

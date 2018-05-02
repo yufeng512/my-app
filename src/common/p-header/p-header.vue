@@ -1,10 +1,13 @@
 <template id="">
   <div class="header-box">
-    <div v-show="isBack" @click="backUrl">
-      <i class="icon-back"></i>
+    <div class="back" v-show="isBack" @click="$router.go(-1)">
+      <Icon type="chevron-left"></Icon>
       <span>返回</span>
     </div>
     <h4>{{headTitle}}</h4>
+    <div class="operation" v-show="operation.isOperation" @click="editOperation">
+      {{ operation.text }}
+    </div>
   </div>
 </template>
 <script>
@@ -21,11 +24,15 @@ export default {
     },
     isBack: {
       type: Boolean
+    },
+    operation:{
+      type: Object,
+      required: true
     }
   },
   methods:{
-    backUrl(){
-      this.$emit('backUrl')
+    editOperation(){
+      this.$emit('editOperation')
     }
   }
 }
@@ -43,8 +50,7 @@ export default {
   left: 0
   z-index: 999
   background: $color-background
-  // border-bottom: 1px solid $border-gray
-  div
+  .back
     position: absolute
     left: 0
     height: 80px
@@ -52,6 +58,17 @@ export default {
     align-items: center
     line-height: 80px
     padding: 0 20px
+    color: $font-white
+    @include font-dpr(12px)
+    span
+      margin-left: 5px
+  .operation
+    position: absolute
+    right: 0
+    top: 0
+    height: 80px
+    line-height: 80px
+    padding: 0 30px
     color: $font-white
     @include font-dpr(12px)
   h4

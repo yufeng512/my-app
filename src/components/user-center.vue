@@ -72,7 +72,7 @@
 </style>
 <template id="">
   <div class="user-center-box">
-    <vHeader :headTitle="pTitle" @backUrl="$router.go(-1)" :isBack='isBack'></vHeader>
+    <vHeader :headTitle="pTitle" :isBack='isBack' :operation='operation' />
     <div class="user-content">
       <div class="user-box">
         <div class="user-info-box box-flex">
@@ -105,7 +105,10 @@
       </div>
       <div class="go-shoping"> 去购物 </div>
     </div>
-    <vFooter @userCenter="userCenterBtn()" @goHome="goHomeBtn()"></vFooter>
+    <vFooter
+      @userCenter="$router.push('/userCenter')"
+      @goHome="$router.push('/home')"
+      @goShop="$router.push('/shopping')" />
   </div>
 </template>
 <script>
@@ -118,6 +121,10 @@ export default {
     return {
       pTitle: '个人中心',
       isBack: true,
+      operation:{
+        text: '',
+        isOperation: false
+      },
       orderList:[
         { name:'全部订单', id:1 },
         { name:'未付款', id:2 },
@@ -133,12 +140,6 @@ export default {
   methods: {
     goOrder(item){
       this.$router.push('/order/'+item.id)
-    },
-    userCenterBtn(){
-      this.$router.push('/userCenter')
-    },
-    goHomeBtn(){
-      this.$router.push('/home')
     }
   }
 }

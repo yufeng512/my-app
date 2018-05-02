@@ -2,16 +2,20 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Router from 'vue-router'
+import axios from 'axios'
 import App from './App'
 import routes from './router'
 import store from './store'
 import 'lib-flexible'
-console.log(store);
-import axios from 'axios'
+
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
+Vue.use(iView)
 
 Vue.prototype.$http = axios
 //添加一个请求拦截器
 axios.interceptors.request.use(function(config){
+  console.log(config);
     store.dispatch('showloader')
     return config
 },function(err){
