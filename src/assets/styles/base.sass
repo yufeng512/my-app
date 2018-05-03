@@ -1,4 +1,5 @@
 @import "variable.sass"
+@import "mixin.sass"
 
 body, html
   line-height: 1
@@ -21,3 +22,47 @@ body, html
   justify-content: flex-end
 .box-around
   justify-content: space-around
+
+//ui框架 css
+.mint-msgbox
+  width: 80%
+.mint-msgbox-header
+  padding: 20px 0 15px
+.mint-msgbox-title
+  @include font-dpr(14px)
+.mint-msgbox-content
+  padding: 20px 0 30px
+.mint-msgbox-message
+  @include font-dpr(12px)
+.mint-msgbox-btns
+  height: 80px
+.mint-msgbox-btn
+  @include font-dpr(12px)
+
+//checkbox 选中
+.check-box
+  text-align: center
+  line-height: 160px
+  position: relative
+  input[type='checkbox']
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    border-radius: 10px
+    opacity: 0
+  .checked
+    position: absolute
+    left: 50%
+    top: 50%
+    width: 30px
+    height: 30px
+    box-sizing: border-box
+    background: $bg-white
+    border: 2px solid $border-gray
+    border-radius: 50%
+    transform: translate(-50%, -50%)
+  input[type='checkbox']:checked + .checked
+    background: $bg-white
+    border: 10px solid $border-red

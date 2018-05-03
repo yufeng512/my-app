@@ -8,6 +8,10 @@ import routes from './router'
 import store from './store'
 import 'lib-flexible'
 
+import MintUI from 'mint-ui'
+import { InfiniteScroll } from 'mint-ui'
+Vue.use(InfiniteScroll)
+
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 Vue.use(iView)
@@ -37,16 +41,16 @@ const router = new Router({
 })
 router.beforeEach((to, from, next) => {
   /* 路由发生变化修改页面title */
-  // if (to.meta.title) {
-  //   document.title = to.meta.title
-  // }
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
   next()
 })
 
-import { InfiniteScroll } from 'mint-ui'
-Vue.use(InfiniteScroll)
+
 
 Vue.config.productionTip = false
+
 import API from './api/index.js'
 import './assets/styles/index.sass'
 

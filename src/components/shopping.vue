@@ -2,11 +2,10 @@
   <div class="warpper">
     <vHeader :headTitle="pTitle" :isBack="isBack" :operation='operation' @editOperation="editOperationBtn()" />
     <div class="container">
-      <div class="item-box box-flex" v-for="item in dataList" :key="item.id">
+      <div class="item-box box-flex" v-for="(item,index) in dataList" :key="item.id">
         <div class="check-box">
           <input type="checkbox" v-model="item.isCheck" @change="checkChange(item)">
-          <div class=""> </div>
-          <!-- <Checkbox :checked.sync="item.isCheck" @on-change="checkChange(item)" ></Checkbox> -->
+          <div class="checked"> </div>
         </div>
         <div class="item-pic">
           <img src="../assets/image/default.png" alt="">
@@ -17,15 +16,19 @@
               <p>{{ item.name }}({{ item.standard }})</p>
               <span>X{{item.num}}</span>
             </div>
-            <div class="delete-box">
-              <!-- <Icon type="trash-a"></Icon> -->
+            <div class="delete-box" @click="deleteItem(index)">
+              <Icon type="trash-a"></Icon>
             </div>
           </div>
           <div class="operation-num-box box-flex">
             <div class="operation-num box-flex">
-              <div class="" @click="addReduce(item,0)"> <Icon type="ios-minus-empty"></Icon> </div>
+              <div class="" @click="addReduce(item,0)">
+                 <Icon type="ios-minus-empty"></Icon>
+              </div>
               <div class="">{{ item.num }}</div>
-              <div class="" @click="addReduce(item,1)"> <Icon type="ios-plus-empty"></Icon> </div>
+              <div class="" @click="addReduce(item,1)">
+                 <Icon type="ios-plus-empty"></Icon>
+              </div>
             </div>
           </div>
         </div>
@@ -33,9 +36,10 @@
     </div>
     <div class="operation-shop-cart box-flex">
       <div class="select-price-fee box-flex">
-        <!-- <Radio :checked.sync="isAllChecked" size="large"></Radio> -->
-        <input type="checkbox" v-model="checkAll" @change="handleCheckAll()">
-        <!-- <Checkbox :checked="checkAll"  @on-change="handleCheckAll()"><span>全选</span></Checkbox> -->
+        <div class="check-box">
+          <input type="checkbox" v-model="checkAll" @change="handleCheckAll()">
+          <div class="checked"> </div>
+        </div>
         <span class="price-fee">合计 {{ priceFee }}</span>
       </div>
       <div class="balance" @click="balance"> 结算({{ 1 }}) </div>
@@ -44,6 +48,7 @@
 </template>
 <script>
 import _ from 'lodash'
+import { MessageBox } from 'mint-ui'
 import vHeader from '@/common/p-header/p-header'
 import vRadio from '@/common/components/radio'
 
@@ -86,6 +91,19 @@ export default {
       this.checkChange()
     },
     balance(){
+    },
+    deleteItem(index){
+      let vm = this
+      MessageBox({
+        title: '提示',
+        message: '确定删除此商品吗?',
+        showCancelButton: true
+      }).then(function (action) {
+        if (action == 'confirm') {
+          vm.dataList.splice(index,1)
+          vm.checkChange()
+        }
+      })
     },
     checkChange() {
       let priceFee = 0
@@ -150,12 +168,6 @@ export default {
       margin-bottom: 20px
       .check-box
         flex: 0 0 80px
-        text-align: center
-        line-height: 160px
-        input[type='checkbox']
-          width: 30px
-          height: 30px
-          border-radius: 10px
       .item-pic
         flex: 0 0 160px
         width: 16px
@@ -211,8 +223,12 @@ export default {
   align-items: center
   justify-content: space-between
 .select-price-fee
-  padding: 0 20px
   align-items: center
+  height: 100px
+  flex: 0 1 100%
+  .check-box
+    height: 100px
+    flex: 0 0 80px
   .price-fee
     @include font-dpr(10px)
   input[type='checkbox']
