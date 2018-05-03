@@ -5,9 +5,9 @@
       <span>返回</span>
     </div>
     <h4>{{headTitle}}</h4>
-    <div class="operation" v-show="operation.isOperation" @click="editOperation">
-      {{ operation.text }}
-    </div>
+    <!-- <div class="operation" v-show="operation.isOperation" @click="editOperation"> -->
+      <!-- {{ operation.text }} -->
+    <!-- </div> -->
   </div>
 </template>
 <script>

@@ -42,7 +42,7 @@
         </div>
         <span class="price-fee">合计 {{ priceFee }}</span>
       </div>
-      <div class="balance" @click="balance"> 结算({{ 1 }}) </div>
+      <div class="balance" @click="balance"> 结算</div>
     </div>
   </div>
 </template>
@@ -231,11 +231,6 @@ export default {
     flex: 0 0 80px
   .price-fee
     @include font-dpr(10px)
-  input[type='checkbox']
-    width: 30px
-    height: 30px
-    border-radius: 10px
-    margin-right: 10px
 .balance
   width: 220px
   height: 100px

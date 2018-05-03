@@ -127,4 +127,7 @@ export default {
         border-top: 1px solid $border-gray
         padding: 20px 25px
         @include font-dpr(12px)
+        button
+          border: none
+          background: none
 </style>
