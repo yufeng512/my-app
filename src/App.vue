@@ -21,9 +21,8 @@ export default {
 }
 </script>
 
-<style lang="sass" rel="stylesheet">
+<style lang="sass" rel="stylesheet/sass">
 #app
   width: 100%
   height: 100%
-  // position: relative
 </style>
