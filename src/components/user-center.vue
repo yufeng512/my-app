@@ -85,7 +85,6 @@
           </div>
         </div>
         <div class="">
-
         </div>
       </div>
       <div class="areas-box">
@@ -103,7 +102,7 @@
           </li>
         </ul>
       </div>
-      <div class="go-shoping"> 去购物 </div>
+      <div class="go-shoping" @click="goShopping()"> 去购物 </div>
     </div>
     <vFooter
       @userCenter="$router.push('/userCenter')"
@@ -140,6 +139,9 @@ export default {
   methods: {
     goOrder(item){
       this.$router.push('/order/'+item.id)
+    },
+    goShopping(){
+      this.$router.push('/home')
     }
   }
 }

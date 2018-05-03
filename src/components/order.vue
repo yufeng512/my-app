@@ -46,35 +46,42 @@ export default {
       },
       currentIndex:0,
       tabList:[
-        {name:'全部',id:1, status: 'all'},
-        {name:'未付款',id:2, status: 0},
-        {name:'待提货',id:3, status: 1},
-        {name:'已提货',id:4, status: 2}
+        {name:'全部',id:1, status: 1},
+        {name:'未付款',id:2, status: 2},
+        {name:'待提货',id:3, status: 3},
+        {name:'已提货',id:4, status: 4}
       ],
       list:[
-        { identifier: 10841,status: 0,num: 2,priceFee: 13.22, created:''},
+        { identifier: 10841,status: 3,num: 2,priceFee: 13.22, created:''},
         { identifier: 10141,status: 2,num: 3,priceFee: 17.32, created:''},
-        { identifier: 10741,status: 0,num: 2,priceFee: 19.22, created:''},
-        { identifier: 10241,status: 1,num: 5,priceFee: 10.42, created:''},
-        { identifier: 10341,status: 0,num: 4,priceFee: 12.22, created:''},
+        { identifier: 10741,status: 4,num: 2,priceFee: 19.22, created:''},
+        { identifier: 10241,status: 4,num: 5,priceFee: 10.42, created:''},
+        { identifier: 10341,status: 3,num: 4,priceFee: 12.22, created:''},
         { identifier: 10041,status: 2,num: 7,priceFee: 15.62, created:''},
-        { identifier: 10541,status: 1,num: 9,priceFee: 13.29, created:''},
-        { identifier: 10641,status: 0,num: 1,priceFee: 18.22, created:''},
-        { identifier: 10941,status: 1,num: 5,priceFee: 11.63, created:''}
+        { identifier: 10541,status: 3,num: 9,priceFee: 13.29, created:''},
+        { identifier: 10641,status: 4,num: 1,priceFee: 18.22, created:''},
+        { identifier: 10941,status: 2,num: 5,priceFee: 11.63, created:''}
       ],
       orderList:[]
     }
   },
   mounted(){
-    this.currentIndex = this.$route.params.id
-    this.orderList = this.list
+    let vm = this
+    vm.currentIndex = vm.$route.params.id
+    vm.orderList = _.filter(vm.list, function(item){
+      if (vm.currentIndex == 1) {
+        return item
+      }else{
+        return vm.currentIndex == item.status
+      }
+    })
   },
   methods:{
     selectTab (item) {
       this.currentIndex = item.id
       let orderList = this.list
       this.orderList = _.filter(orderList,function(_item){
-        if(item.status == 'all'){
+        if(item.status == 1){
           return item
         }else {
           return _item.status == item.status
