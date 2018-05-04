@@ -39,9 +39,10 @@ export default {
   methods:{
     getList(){
       let vm = this
-      API.getList().then( (rs) =>{
-        vm.listdata = rs.data.slice(0,14);
+      API.getList().then(rs =>{
         if (vm.listdata.length == 0) {
+          vm.listdata = rs.data.slice(0,14);
+          console.log(vm.listdata);
         }else{
           if (vm.loading) return
           vm.counter++;

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <loading v-show="showLoading"></loading>
+    <loading v-show="$store.getters.showLoading"></loading>
     <router-view/>
   </div>
 </template>
@@ -14,9 +14,10 @@ export default {
     loading
   },
   computed: {
-      showLoading () {
-        return this.$store.getters.showLoading
-      }
+  },
+  created(){
+    this.$store.dispatch('addlist')
+    console.log(this.$store.getters.dataList);
   }
 }
 </script>

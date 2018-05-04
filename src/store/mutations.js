@@ -1,8 +1,8 @@
-import { SHOWLOADING,HIDELOADING } from './type.js'
+import { SHOWLOADING,HIDELOADING,ADDLIST} from './type.js'
 
 const state = {
     showLoading: false,
-    dataList: []
+    dataList: [1,2,3,4,5]
 }
 
 const mutations = {
@@ -11,6 +11,9 @@ const mutations = {
     },
     [HIDELOADING](state){
         state.showLoading = false
+    },
+    [ADDLIST](state){
+      state.dataList.push(33)
     }
 }
 
@@ -21,6 +24,7 @@ const getters = {
     dataList(){
         return state.dataList
     }
+
 }
 
 export default {

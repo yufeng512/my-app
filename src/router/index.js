@@ -1,11 +1,13 @@
 import home from '@/components/home'
+import login from '@/components/login'
 import order from '@/components/order'
 import pay from '@/components/pay'
 import shopping from '@/components/shopping'
 import userCenter from '@/components/user-center'
 import testPull from '@/common/p-test-pull/test-pull'
 
-const router = [
+
+const routes = [
     {
       path: '/',
       component: home,
@@ -18,6 +20,13 @@ const router = [
       component: home,
       meta: {
         title: '首页'
+      }
+    },
+    {
+      path: '/login',
+      component: login,
+      meta: {
+        title: '登陆'
       }
     },
     {
@@ -62,4 +71,4 @@ const router = [
     }
   ]
 
-export default router
+export default routes
