@@ -1,3 +1,4 @@
 export const SHOWLOADING =  'SHOWLOADING'
 export const HIDELOADING =  'HIDELOADING'
-export const ADDLIST =  'ADDLIST'
+export const ADDGOODS =  'ADDGOODS'
+export const DETELEGOODS =  'DETELEGOODS'

@@ -6,7 +6,10 @@ export default {
     hideloader:({ commit }) => {
         commit( types.HIDELOADING )
     },
-    addlist:({ commit }) => {
-        commit( types.ADDLIST )
+    addgood:({ commit }) => {
+      commit( types.ADDGOODS )
+    },
+    detelegood:({ commit }) => {
+      commit( types.DETELEGOODS )
     }
 }

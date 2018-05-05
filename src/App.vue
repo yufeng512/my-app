@@ -16,8 +16,6 @@ export default {
   computed: {
   },
   created(){
-    this.$store.dispatch('addlist')
-    console.log(this.$store.getters.dataList);
   }
 }
 </script>

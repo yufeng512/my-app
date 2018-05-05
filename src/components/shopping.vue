@@ -85,9 +85,12 @@ export default {
       if (i == 0) {
         if (item.num == 1) return
         item.num--
+        this.$store.dispatch('detelegood')
       }else if(i == 1){
         item.num++
+        this.$store.dispatch('addgood')
       }
+      console.log(this.$store.getters.goodslist);
       this.checkChange()
     },
     balance(){
