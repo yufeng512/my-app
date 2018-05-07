@@ -49,8 +49,6 @@
 <script>
 import _ from 'lodash'
 import { MessageBox } from 'mint-ui'
-import vHeader from '@/common/p-header/p-header'
-import vRadio from '@/common/components/radio'
 
 export default {
   name: 'shopping',
@@ -75,10 +73,6 @@ export default {
         {id: 8,name: '高档水晶玻璃花瓶',priceFee: 16.5,standard: '100mm',num: 1,isCheck: false}
       ]
     }
-  },
-  components: {
-    vHeader,
-    vRadio
   },
   methods: {
     addReduce(item,i){
@@ -225,6 +219,7 @@ export default {
   border-top: 1px solid $border-gray
   align-items: center
   justify-content: space-between
+  z-index: 9999
 .select-price-fee
   align-items: center
   height: 100px

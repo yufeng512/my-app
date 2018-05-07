@@ -14,6 +14,11 @@ Vue.use(InfiniteScroll)
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 Vue.use(iView)
+// 全局注册组件
+import vFooter from '@/common/p-footer/p-footer'
+import vHeader from '@/common/p-header/p-header'
+Vue.component('vFooter', vFooter)
+Vue.component('vHeader', vHeader)
 
 Vue.config.productionTip = false
 
@@ -21,13 +26,6 @@ Vue.use(Router)
 const router = new Router({
   routes
 })
-
-// 全局注册组件
-import vFooter from '@/common/p-footer/p-footer'
-import vHeader from '@/common/p-header/p-header'
-Vue.component('vFooter', vFooter)
-Vue.component('vHeader', vHeader)
-
 router.beforeEach((to, from, next) => {
   /* 路由发生变化修改页面title */
   if (to.meta.title) {
