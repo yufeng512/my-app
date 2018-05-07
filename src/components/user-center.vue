@@ -111,8 +111,6 @@
   </div>
 </template>
 <script>
-import vHeader from '@/common/p-header/p-header'
-import vFooter from '@/common/p-footer/p-footer'
 
 export default {
   name: 'userCenter',
@@ -131,10 +129,6 @@ export default {
         { name:'已提货', id:4 },
       ]
     }
-  },
-  components: {
-    vHeader,
-    vFooter
   },
   methods: {
     goOrder(item){

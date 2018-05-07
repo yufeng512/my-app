@@ -88,7 +88,7 @@ export default {
         this.$store.dispatch('detelegood')
       }else if(i == 1){
         item.num++
-        this.$store.dispatch('addgood')
+        this.$store.dispatch('addgood','yesong')
       }
       console.log(this.$store.getters.goodslist);
       this.checkChange()

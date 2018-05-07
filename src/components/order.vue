@@ -29,13 +29,9 @@
 </template>
 <script>
 import _ from 'lodash'
-import vHeader from '@/common/p-header/p-header'
 
 export default {
   name: 'order',
-  components: {
-    vHeader
-  },
   data () {
     return {
       pTitle: '我的订单',

@@ -14,14 +14,10 @@
 </template>
 
 <script>
-import vFooter from '@/common/p-footer/p-footer'
 import API from '@/api/index'
 
 export default {
   name: 'home',
-  components:{
-    vFooter
-  },
   data () {
     return {
       loading: false,
